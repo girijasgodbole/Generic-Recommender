@@ -1,38 +1,53 @@
+import pandas as pd
 import numpy as np
-from rbm import RBM 
+import argparse
+from rbm import RBM
+import pdb
 
-r = RBM(num_visible = 1682, num_hidden = 20)
-ubase = open('ua.base', 'r+')
-newTrain = open('train.txt','w+')
-arrayTrain = np.ndarray(shape=(943,1682), dtype=int)
-for line in ubase:
-	content=line.strip().split("\t")
-	a, b, c, d = [int(i) for i in content]
-	if(c <3):
-		c1 = 0
-	else:
-		c1 = 1
-	newTrain.write('%d\t%d\t%d\n' % (a, b, c1))
-	arrayTrain[a-1,b-1]=c1
+# Getting command line arguments
+parser = argparse.ArgumentParser(description='Process some integers.')
 
-r.train(arrayTrain, max_epochs = 500)
+parser.add_argument('-u', '--hiddenUnits',type=int,help="Hidden units",dest='hiddenUnits')
+parser.add_argument('-e', '--epochs',type=int,help="Epochs",dest='epochs')
+parser.add_argument('-train', '--trainFile',help="File containing raw train data",dest='trainFile')
+parser.add_argument('-test', '--testFile',help="File containing raw test data",dest='testFile')
+
+args = parser.parse_args()
+
+# Data pre-processing using pandas
+trainDataFrame = pd.read_csv(args.trainFile,delim_whitespace=True,header=None,usecols=[0,1,2])
+trainDataFrame[2] = trainDataFrame[2].apply(lambda x: 1 if x>2 else 0)
+
+testDataFrame = pd.read_csv(args.testFile,delim_whitespace=True,header=None,usecols=[0,1,2])
+testDataFrame[2] = testDataFrame[2].apply(lambda x: 1 if x>2 else 0)
+
+trainMatrix=trainDataFrame.as_matrix()
+testMatrix=testDataFrame.as_matrix()
+
+trainArray = np.ndarray(shape=(943,1682), dtype=int)
+row,column = trainMatrix.shape
+
+# Converting raw dataframe into training numpy array
+for i in range (0, row):
+    userID = trainMatrix[i][0] -1
+        movieID = trainMatrix[i][1] -1
+        trainArray[userID][movieID]=trainMatrix[i][2]
+
+totalUsers, totalMovies = trainArray.shape
+r = RBM(num_visible = totalMovies,num_hidden = args.hiddenUnits)
+r.train(trainArray, max_epochs = args.epochs)
 print(r.weights)
 
-utest = open('ua.test', 'r+')
-newTest = open('test.txt','w+')
-arrayTest = np.ndarray(shape=(943,1682), dtype=int)
-for line in utest:
-    content=line.strip().split("\t")
-    a, b, c, d = [int(i) for i in content]
-    if(c <3):
-        c1 = 0
-    else:
-        c1 = 1
-    newTest.write('%d\t%d\t%d\n' % (a, b, c1))
-    arrayTest[a-1,b-1]=c1
+testArray = np.zeros(shape=(943,1682), dtype=int)
+row,column = testMatrix.shape
+# Converting raw dataframe into training numpy array
+for i in range (0, row):
+    userID = testMatrix[i][0] -1
+        movieID = testMatrix[i][1] -1
+        testArray[userID][movieID]=testMatrix[i][2]
 
-for user in range(1, 943):
-    print(r.run_visible(arrayTest[user-1]))
-
-
-	
+totalUsers, totalMovies = testArray.shape
+print testArray[0].shape
+for user in range(0, totalUsers-1):
+    tempArray = np.reshape(testArray[user], (1,1682))
+        print(r.run_visible(tempArray))	
