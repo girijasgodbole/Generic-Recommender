@@ -40,7 +40,7 @@ print(r.weights)
 
 testArray = np.zeros(shape=(943,1682), dtype=int)
 row,column = testMatrix.shape
-# Converting raw dataframe into training numpy array
+# Converting raw dataframe into testing numpy array
 for i in range (0, row):
     userID = testMatrix[i][0] -1
         movieID = testMatrix[i][1] -1
