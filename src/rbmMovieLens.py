@@ -30,8 +30,8 @@ row,column = trainMatrix.shape
 # Converting raw dataframe into training numpy array
 for i in range (0, row):
     userID = trainMatrix[i][0] -1
-        movieID = trainMatrix[i][1] -1
-        trainArray[userID][movieID]=trainMatrix[i][2]
+    movieID = trainMatrix[i][1] -1
+    trainArray[userID][movieID]=trainMatrix[i][2]
 
 totalUsers, totalMovies = trainArray.shape
 r = RBM(num_visible = totalMovies,num_hidden = args.hiddenUnits)
@@ -43,11 +43,11 @@ row,column = testMatrix.shape
 # Converting raw dataframe into testing numpy array
 for i in range (0, row):
     userID = testMatrix[i][0] -1
-        movieID = testMatrix[i][1] -1
-        testArray[userID][movieID]=testMatrix[i][2]
+    movieID = testMatrix[i][1] -1
+    testArray[userID][movieID]=testMatrix[i][2]
 
 totalUsers, totalMovies = testArray.shape
 print testArray[0].shape
 for user in range(0, totalUsers-1):
     tempArray = np.reshape(testArray[user], (1,1682))
-        print(r.run_visible(tempArray))	
+    print(r.run_visible(tempArray))
