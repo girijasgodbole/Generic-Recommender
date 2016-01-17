@@ -1,0 +1,100 @@
+<html>
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Surround   by Free CSS Templates</title>
+<link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css" />
+<link href="static/indexstyle.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="jquery/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="jquery/jquery.gallerax-0.2.js"></script>
+<style type="text/css">
+@import "gallery.css";
+</style>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header-wrapper">
+		<div id="header">
+			
+			<div id="logo">
+				<h1>Recco </h1>
+				<p>We suggest.. You choose!</p>
+			</div>
+			
+		</div>
+		<!-- end #header --> 
+	</div>
+	<div id="welcome">
+		<h2 class="title">Welcome to Recco </h2>
+		<div class="entry">
+			<p>This is <strong>Recco </strong>, a free platform to explore the infotainment world.. Here you can share your experiences and opinions with the things you use and we will help you to get the things of your interest quickly and efficiently. :)</p>
+		</div>
+	</div>
+	
+	<!-- end #page -->
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+				<div id="content">
+					<div class="post">
+						<h2 class="title"><a href="#">Lorem ipsum sed aliquam</a></h2>
+						<div class="entry">
+							<p><img src="static/images/pics03.jpg" alt="" width="225" height="225" class="alignleft" />Sed lacus. Donec lectus. Nullam pretium nibh ut turpis. Nam bibendum. In nulla tortor, elementum vel, tempor at, varius non, purus. Mauris vitae nisl nec metus placerat consectetuer. Donec ipsum. Proin imperdiet est. Phasellus <a href="#">dapibus semper urna</a>. Pellentesque ornare, orci in consectetuer hendrerit, urna elit eleifend nunc, ut consectetuer nisl felis ac diam. Etiam non felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem.  Mauris quam enim, molestie in, rhoncus ut, lobortis a, est.	Pellentesque viverra vulputate enim. Aliquam erat volutpat. </p>
+						</div>
+					</div>
+				</div>
+				<!-- end #content -->
+				<div id="sidebar">
+					<ul>
+						<li>
+							
+							<ul>
+								<li>Sign Up</a> </li>
+								<li><p>Username  <input type="text" name="uname" /></p>
+								<p>Password  <input type="password" name="pword" /></p>
+								<input type="submit" name="Register" Value="Register"></li>
+								
+								
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<!-- end #sidebar -->
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<div id="splash">
+		<ul>
+			<li class="first"><img src="movie4.jpg" width="225" height="225" alt="" /></li>
+			<li><img src="movie1.jpg" width="225" height="225" alt="" /></li>
+			<li><img src="movie2.jpg" width="225" height="225" alt="" /></li>
+			<li><img src="movie3.jpg" width="225" height="225" alt="" /></li>
+		</ul>
+	</div>
+	<!-- end #menu -->
+	<div id="three-columns">
+		<div id="column1">
+			<h2>Maecenas luctus</h2>
+			<p>Etiam non felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem. Mauris quam enim, molestie.</p>
+			<p><a href="#" class="link-style">Read More</a></p>
+		</div>
+		<div id="column2">
+			<h2>Fusce fringilla</h2>
+			<p>Etiam non felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem. Mauris quam enim, molestie.</p>
+			<p><a href="#" class="link-style">Read More</a></p>
+		</div>
+		<div id="column3">
+			<h2>Praesent mattis</h2>
+			<p>Etiam non felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem. Mauris quam enim, molestie.</p>
+			<p><a href="#" class="link-style">Read More</a></p>
+		</div>
+	</div>
+</div>
+<div id="footer">
+	<p>Copyright (c) 2012 Sitename.com. All rights reserved. Design by <a href="http://www.freecsstemplates.org">FCT</a>.</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
