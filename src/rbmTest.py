@@ -10,6 +10,7 @@ parserTest = argparse.ArgumentParser(description='Process testing specifications
 
 parserTest.add_argument('-model', '--modelFile',help="select the model",dest='model')
 parserTest.add_argument('-test', '--testFile',help="File containing raw test data",dest='testFile')
+# parser.add_argument('-train', '--trainFile',help="File containing raw train data",dest='trainFile')
 
 args = parserTest.parse_args()
 
